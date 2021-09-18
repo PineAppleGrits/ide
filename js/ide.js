@@ -533,6 +533,12 @@ $(document).ready(function () {
 
     $statusLine = $("#status-line");
 
+    document.addEventListener("keydown", function(e) {
+        if (e.key === 's' && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+          e.preventDefault();
+          alert('captured');
+        }
+      }, false);
     $("body").keydown(function (e) {
         let isCtrl = false;
         if(e.keyCode == 17) isCtrl=true;
