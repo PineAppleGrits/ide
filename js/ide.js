@@ -534,8 +534,10 @@ $(document).ready(function () {
     $statusLine = $("#status-line");
 
     $("body").keydown(function (e) {
+        let isCtrl = false;
+        if(e.keyCode == 17) isCtrl=true;
         var keyCode = e.keyCode || e.which;
-        if (keyCode == 120) { // F9
+        if (keyCode == 120 || e.keyCode == 83 && isCtrl == true) { // F9
             e.preventDefault();
             run();
         } else if (keyCode == 119) { // F8
